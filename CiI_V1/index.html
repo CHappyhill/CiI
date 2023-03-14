@@ -1,0 +1,99 @@
+<!-- CHappyhill - Chris in Indië - WebMap -->
+
+<!doctype html>
+<html>
+
+<head>
+  <title>Chris in Indië</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <H1>Chris in Indië</H1>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.js"></script>
+  <div id="map"></div>
+
+  <script>
+    //initialize the map
+    const map = L.map('map').setView([-6.5, 106.5], 9);
+
+    //Create baselayer - tegels
+    const backgroundMap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 19
+    });
+    // Add base layer to map.
+    backgroundMap.addTo(map);
+
+    // Add geometries from a local geojson file | see also; https://leafletjs.com/examples/geojson/
+    // code below is based on https://github.com/NieneB/webmapping_for_beginners_v2/wiki/Leaflet-step-4
+    // create maplayer object to be added to the map (later filled with data from geojson file)
+    var geojsonMarkerOptions = {
+      "color": "#ff7800",
+      "Opacity": 0.65
+    };
+    const geojson = L.geoJson(null, {
+      style: geojsonMarkerOptions,
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng);
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.Name)
+      },
+    }).addTo(map);
+    fetch("./LocalData/CiI_locaties.geojson") // Fetch the geojson file into the geojson object
+      .then(response => response.json())
+      .then(data => {
+        geojson.addData(data);
+      })
+      .catch(error => alert("Sorry, the data cannot be found, this is the error: " + error));
+
+    // Add the scanned and georeferenced paper map from 1937
+    var PaperMap1937 = L.imageOverlay('./LocalData/CiI_kaart_West-Java_1937.jpg',
+      L.latLngBounds([[-5.612617079681188, 105.2066612883407], [-8.364387532397192, 109.1249702239136]]), {
+      opacity: 0.8,
+      alt: 'Scanned paper map of West Java from 1937',
+      interactive: true
+    });
+    
+    // Add layer control to the webmap
+    var layerControl = L.control.layers().addTo(map);
+    // Add the background map to the control as baselayer (radio button option, one at a time visible)
+    layerControl.addBaseLayer(backgroundMap, "Achtergrondkaart (OSM)");
+    // Add the local geojson dataset as its own map (overlay) layer to the control
+    layerControl.addOverlay(geojson, "Verblijflocaties");
+    // Add the local scanned & georeferenced paper map from 1937 to the control
+    layerControl.addOverlay(PaperMap1937, "Ingescande kaart West-Java 1937");
+
+
+
+    // Extra background maps (WMS) found via https://leaflet-extras.github.io/leaflet-providers/preview/
+    var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+    layerControl.addBaseLayer(OpenStreetMap_Mapnik, "OSM_Mapnik");
+    var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+      maxZoom: 17,
+      attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+    layerControl.addBaseLayer(OpenTopoMap, "OpenTopo");
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+    layerControl.addBaseLayer(Esri_WorldImagery, "SatellietBeeld");
+
+
+
+
+      //
+      // write more code here 
+
+  </script>
+  <H2>Een eerste versie webkaart met de locaties waar Chris is geweest</H2>
+  <H3>~ Created by CHappyhill ~</H3>
+</body>
+
+</html>
