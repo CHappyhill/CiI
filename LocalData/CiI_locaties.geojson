@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "CII",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Balaradja", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.460270132187702, -6.200561299033775 ] } },
+{ "type": "Feature", "properties": { "Name": "Bandoeng", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 107.606641307447404, -6.926334436047039 ] } },
+{ "type": "Feature", "properties": { "Name": "Batavia", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.8114488491711, -6.130731962955675 ] } },
+{ "type": "Feature", "properties": { "Name": "Buitenzorg", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.808121265822507, -6.593059279712015 ] } },
+{ "type": "Feature", "properties": { "Name": "Djengkol", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.414081266447596, -6.140821016971941 ] } },
+{ "type": "Feature", "properties": { "Name": "Gobang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.651099656572399, -6.518194910507527 ] } },
+{ "type": "Feature", "properties": { "Name": "Goenoeng Poetri", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.894345516912296, -6.455646927356772 ] } },
+{ "type": "Feature", "properties": { "Name": "Kampong Melajoe", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.859630255184001, -6.215002476117884 ] } },
+{ "type": "Feature", "properties": { "Name": "Laboean", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 105.828551987337093, -6.372132505479121 ] } },
+{ "type": "Feature", "properties": { "Name": "Malingping", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.018663640739803, -6.780142740873442 ] } },
+{ "type": "Feature", "properties": { "Name": "Pandeglang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.107959648690695, -6.30158981467175 ] } },
+{ "type": "Feature", "properties": { "Name": "Poentjak", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.992093366470598, -6.701667665283133 ] } },
+{ "type": "Feature", "properties": { "Name": "Rangkasbitoeng", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.239744905152506, -6.36355060783311 ] } },
+{ "type": "Feature", "properties": { "Name": "Serang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.142159852264399, -6.119018395071203 ] } },
+{ "type": "Feature", "properties": { "Name": "Soekaboemi", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.937297771686801, -6.926203147825795 ] } },
+{ "type": "Feature", "properties": { "Name": "Tandjong Priok", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.883569720383605, -6.104275231137279 ] } },
+{ "type": "Feature", "properties": { "Name": "Tangerang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.635605618735198, -6.174177326221103 ] } },
+{ "type": "Feature", "properties": { "Name": "Tjiandjoer", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 107.142317700444295, -6.817255592611343 ] } },
+{ "type": "Feature", "properties": { "Name": "Tjibinang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.830784827670499, -6.490098001374948 ] } },
+{ "type": "Feature", "properties": { "Name": "Tjigonbang", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.8214496075677, -6.735603748462895 ] } },
+{ "type": "Feature", "properties": { "Name": "Tjipannas", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 107.031744615511002, -6.719889017992306 ] } },
+{ "type": "Feature", "properties": { "Name": "Tjisaoek", "Description": "" }, "geometry": { "type": "Point", "coordinates": [ 106.642999442018706, -6.325067168299299 ] } }
+]
+}
